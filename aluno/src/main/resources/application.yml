@@ -1,0 +1,19 @@
+server:
+  port: 8092
+  error:
+    include-message: always
+  servlet:
+    encoding:
+      charset: UTF-8
+      force-response: true
+
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/mydb
+    username: root
+    password: kagemane3
+  jpa:
+    hibernate.ddl-auto: none
+    generate-ddl: true
+    show-sql: true

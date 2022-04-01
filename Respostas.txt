@@ -4,10 +4,51 @@ Item A)
 
 select nome, count(*) from mydb.aluno group by nome having count(*) > 1
 
+
 Item B)
 
+select t.nome, p.nome, a.nome 
+
+from mydb.turma_diciplina td
+
+inner join mydb.turma t on t.id = td.turma_id
+
+inner join mydb.professor p on p.id = td.professor_id
+
+inner join mydb.aluno_has_turma_diciplina atd on atd.turma_diciplina_id = td.id
+
+inner join mydb.aluno a on a.id = atd.aluno_id
+where p.nome = 'Armando'
+and a.nome = 'José';
 
 
+Item C)
+
+select a.nome, a.sexo, d.nome 
+from mydb.turma_diciplina td
+
+inner join mydb.aluno_has_turma_diciplina atd on atd.turma_diciplina_id = td.id
+
+inner join mydb.aluno a on a.id = atd.aluno_id
+
+inner join mydb.diciplina d on d.id = td.diciplina_id
+
+where a.sexo = 'F'
+and d.nome != 'Artes';
+
+Item D)
+
+select a.nome, d.nome 
+from mydb.turma_diciplina td
+
+inner join mydb.diciplina d on d.id = td.diciplina_id
+
+inner join mydb.aluno_has_turma_diciplina atd on atd.turma_diciplina_id = td.id
+
+inner join mydb.aluno a on a.id = atd.aluno_id
+
+where d.nome = 'Matemática'
+order by a.nome
 
 
 3ª) Questão
@@ -40,14 +81,19 @@ new Thread(() -> {
   System.out.println("Hello world!");}).start();
 
 
-4ª) Questão
+
 
 5ª) Questão
+
+A metodologia ágil serve para reduzir atritos, diminuir obstáculos, cortar trabalho extra desnecessário. 
+Isso contribui para um desenvolvimento mais focado em resultados e qualidade.
 
 6ª) Questão
 
 JPA -> Uma API da linguagem java de para persistência de dados 
 PrimeFaces -> É uma biblioteca de componentes ricos para aplicações criadas com javaServer  faces.
 Lombok -> É um framework para o java  que permite escrever códido eliminando a verbosidade.
+Angular/React -> Angula é um framework de codigo aberto e react uma biblioteca de codigo aberto.
+
 
 
